@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 12:56:43 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 12:29:22 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/05 15:30:57 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	wildcard_nb(char *patern, char *str)
 		return (wildcard_nb(patern + 1, str + 1));
 	if (patern[0] == '?')
 		return (wildcard_nb(patern + 1, str) || (str[0] >= '0' && str[0] <= '9'
-			&& wildcard_nb(patern + 1, str + 1)));
+				&& wildcard_nb(patern + 1, str + 1)));
 	return (0);
 }
 
