@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/04 12:55:27 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/05 01:06:30 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 
 # define PATERN_C "C *,*,*"
-# define PATERN_C "F *,*,*"
+# define PATERN_F "F *,*,*"
 # define PATERN_NO "NO *"
 # define PATERN_SO "SO *"
 # define PATERN_EA "EA *"

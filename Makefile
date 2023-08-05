@@ -3,7 +3,7 @@ S_SRC = main.c parsing/parsing1.c parsing/gnl.c parsing/utils.c
 SRC = src/main.c src/parsing/parsing1.c src/parsing/gnl.c src/parsing/utils.c
 
 D_OBJ = ./obj/
-OBJ = $(addprefix $(D_OBJ), $(S_SRC:.cpp=.o))
+OBJ = $(addprefix $(D_OBJ), $(S_SRC:.c=.o))
 
 D_INC = ./inc/
 
