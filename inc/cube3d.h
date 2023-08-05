@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 13:19:34 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/05 15:16:56 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ typedef struct s_data
 }	t_data;
 
 // Parsing
-int	parsing_color(char *line);
-t_data	parsing_data(int fd);
+int			parsing_color(char *line);
+t_data		parsing_data(int fd);
 
-int	wildcard(char *patern, char *str);
-int	wildcard_nb(char *patern, char *str);
-char	*gnl(int fd);
-int	atouc(char	*str, int *rgb);
-char	*ft_strdup(char *s);
-int	ft_strlen(char *str);
+int			wildcard(char *patern, char *str);
+int			wildcard_nb(char *patern, char *str);
+char		*gnl(int fd);
+int			atouc(char	*str, int *rgb);
+char		*ft_strdup(char *s);
+int			ft_strlen(char *str);
 
 #endif

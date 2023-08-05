@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:11:11 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 12:36:14 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/05 15:17:54 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_data	init_data(void)
 int	is_data_full(t_data data)
 {
 	return (!(data.f == -1 || data.c == -1 || data.no == 0 || data.ea == 0
-		|| data.we == 0 || data.so == 0));
+			|| data.we == 0 || data.so == 0));
 }
 
 int	parsing_color(char *line)

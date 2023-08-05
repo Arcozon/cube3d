@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:12:20 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 13:30:55 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/05 15:29:18 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,13 @@ char	*gnl(int fd)
 	res = 0;
 	if (br == 1 && buff != '\n')
 		res = ft_strjoin_free1(0, buff);
+	else if (br == 1)
+		return (ft_strdup(""));
 	while (br == 1 && buff != '\n')
 	{
 		br = read(fd, &buff, 1);
 		if (br == 1 && buff != '\n')
 			res = ft_strjoin_free1(res, buff);
 	}
-	printf("%p", res);
 	return (res);
 }
