@@ -6,6 +6,8 @@ D_OBJ = ./obj/
 OBJ = $(addprefix $(D_OBJ), $(S_SRC:.c=.o))
 
 D_INC = ./inc/
+S_INC = cube3d.h
+INC = $(addprefix $(D_INC), $(S_INC))
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror
@@ -17,8 +19,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $^ -o$@
 
-$(OBJ): $(D_OBJ)%.o : $(D_SRC)%.c
-	@mkdir -p $(D_OBJ)
+$(OBJ): $(D_OBJ)%.o : $(D_SRC)%.c $(INC)
+	@mkdir -p $(@D)
 	$(CC) $(FLAGS) -I$(D_INC) -c $< -o $@
 
 clean:
