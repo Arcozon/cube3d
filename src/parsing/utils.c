@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 12:56:43 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 15:30:57 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/07 14:35:21 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	wildcard_nb(char *patern, char *str)
 	return (0);
 }
 
-int	atouc(char	*str, int *rgb)
+int	atouc(char	*str, int *rgb, int last)
 {
 	int	i;
 
@@ -51,38 +51,13 @@ int	atouc(char	*str, int *rgb)
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		*rgb = *rgb * 10 + str[i] - '0';
-		if (*rgb >= 256)
+		if (*rgb >= 0xff)
 			return (-1);
 		i++;
 	}
 	if (i == 0)
 		return (-1);
-	if (str[i] == ',')
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *s)
-{
-	char	*str;
-	int		i;
-
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	i = -1;
-	while (s[++i])
-		str[i] = s[i];
-	str[i] = 0;
-	return (str);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (str[i] == ',' && !last)
 		i++;
 	return (i);
 }

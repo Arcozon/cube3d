@@ -1,9 +1,8 @@
 D_SRC = ./src/
-S_SRC = main.c parsing/parsing1.c parsing/gnl.c parsing/utils.c
-SRC = src/main.c src/parsing/parsing1.c src/parsing/gnl.c src/parsing/utils.c
+SRC = main.c parsing/parsing_map.c parsing/parsing1.c parsing/gnl.c parsing/parsing2.c parsing/utils.c utils.c
 
 D_OBJ = ./obj/
-OBJ = $(addprefix $(D_OBJ), $(S_SRC:.c=.o))
+OBJ = $(addprefix $(D_OBJ), $(patsubst %.c,%.o,$(SRC)))
 
 D_INC = ./inc/
 S_INC = cube3d.h

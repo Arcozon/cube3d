@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/05 15:16:56 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/07 19:42:38 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define PATERN_EA "EA *.xpm"
 # define PATERN_WE "WE *.xpm"
 
+# define USED_CHAR " 01EWSN"
+
 typedef struct s_data
 {
 	int		f;
@@ -35,14 +37,25 @@ typedef struct s_data
 	char	*so;
 }	t_data;
 
+typedef struct s_l_map
+{
+	char			*line;
+	struct s_l_map	*next;
+}	t_l_map;
+
 // Parsing
-int			parsing_color(char *line);
+int			parsing_color(char *line, t_data data, int fd, int old);
+void		parsing_data2(int fd, t_data *data, char *line);
 t_data		parsing_data(int fd);
+void		free_data_line(t_data data, char *line, int fd, char *error);
+t_data		init_data(void);
+int			is_not_empty(char *line);
+int			is_data_full(t_data data);
 
 int			wildcard(char *patern, char *str);
 int			wildcard_nb(char *patern, char *str);
 char		*gnl(int fd);
-int			atouc(char	*str, int *rgb);
+int			atouc(char	*str, int *rgb, int last);
 char		*ft_strdup(char *s);
 int			ft_strlen(char *str);
 
