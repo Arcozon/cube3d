@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/07 19:42:38 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/08 01:43:29 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		free_data_line(t_data data, char *line, int fd, char *error);
 t_data		init_data(void);
 int			is_not_empty(char *line);
 int			is_data_full(t_data data);
+t_l_map		*get_l_map(int fd);
 
 int			wildcard(char *patern, char *str);
 int			wildcard_nb(char *patern, char *str);
