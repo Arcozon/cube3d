@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/08 01:43:29 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/08 18:18:34 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define PATERN_WE "WE *.xpm"
 
 # define USED_CHAR " 01EWSN"
+# define USED_PLAYER "EWSN"
+# define WALL '1'
+# define EMPTY '0'
+# define NOT_NEXT_EMPTY ' '
 
 typedef struct s_data
 {
@@ -47,11 +51,17 @@ typedef struct s_l_map
 int			parsing_color(char *line, t_data data, int fd, int old);
 void		parsing_data2(int fd, t_data *data, char *line);
 t_data		parsing_data(int fd);
+void		free_data(t_data data);
 void		free_data_line(t_data data, char *line, int fd, char *error);
 t_data		init_data(void);
 int			is_not_empty(char *line);
 int			is_data_full(t_data data);
 t_l_map		*get_l_map(int fd);
+int			check_border(char **map);
+void		*free_map(char **map);
+int			check_player(char **map);
+void		free_l_map(t_l_map *l_map);
+char		**map_bs(int fd);
 
 int			wildcard(char *patern, char *str);
 int			wildcard_nb(char *patern, char *str);
@@ -59,5 +69,6 @@ char		*gnl(int fd);
 int			atouc(char	*str, int *rgb, int last);
 char		*ft_strdup(char *s);
 int			ft_strlen(char *str);
+void		*ft_calloc(int size);
 
 #endif

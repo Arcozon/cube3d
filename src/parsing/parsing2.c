@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:24:31 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/07 16:55:03 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/08 18:18:18 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,17 @@ t_data	parsing_data(int fd)
 	return (data);
 }
 
-void	free_data_line(t_data data, char *line, int fd, char *error)
+void	free_data(t_data data)
 {
 	free(data.no);
 	free(data.so);
 	free(data.ea);
 	free(data.we);
+}
+
+void	free_data_line(t_data data, char *line, int fd, char *error)
+{
+	free_data(data);
 	free(line);
 	close(fd);
 	write(2, "Error: Parsing: ", 17);

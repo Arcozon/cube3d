@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:43:25 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/08 01:48:07 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/08 16:12:35 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_l_map	*get_l_map(int fd)
 	t_l_map	*l_map;
 
 	l_map = 0;
-	line = gnl(fd); 
+	line = gnl(fd);
 	while (!is_not_empty(line))
 		line = (free(line), gnl(fd));
 	if (!composed_used_char(line))
@@ -77,7 +77,7 @@ t_l_map	*get_l_map(int fd)
 	while (line)
 	{
 		if (!l_map_addback(line, &l_map))
-			return(free_l_map(l_map), (t_l_map *)0);
+			return (free_l_map(l_map), (t_l_map *)0);
 		line = gnl(fd);
 	}
 	return (l_map);

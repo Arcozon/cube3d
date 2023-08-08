@@ -1,5 +1,5 @@
 D_SRC = ./src/
-SRC = main.c parsing/parsing_map.c parsing/parsing1.c parsing/gnl.c parsing/parsing2.c parsing/utils.c utils.c
+SRC = main.c parsing/parsing_l_map.c parsing/parsing1.c parsing/fixing_map.c parsing/gnl.c parsing/checking_map.c parsing/parsing2.c parsing/utils.c utils.c
 
 D_OBJ = ./obj/
 OBJ = $(addprefix $(D_OBJ), $(patsubst %.c,%.o,$(SRC)))
@@ -9,7 +9,7 @@ S_INC = cube3d.h
 INC = $(addprefix $(D_INC), $(S_INC))
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 NAME = cube3d
 
