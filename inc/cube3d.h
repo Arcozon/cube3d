@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/08 18:18:34 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/18 18:19:15 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include "../minilibx-linux/mlx.h"
 
 # define PATERN_C "C ???,???,???"
 # define PATERN_F "F ???,???,???"
@@ -31,15 +32,30 @@
 # define EMPTY '0'
 # define NOT_NEXT_EMPTY ' '
 
+typedef struct s_image
+{
+	char	*name;
+	void	*mlx_image;
+	int		width;
+	int		height;
+	char	*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}	t_image;
+
 typedef struct s_data
 {
 	int		f;
 	int		c;
-	char	*no;
-	char	*ea;
-	char	*we;
-	char	*so;
+	t_image	no;
+	t_image	ea;
+	t_image	we;
+	t_image	so;
+	char	**map;
 }	t_data;
+
+typedef struct s_
 
 typedef struct s_l_map
 {

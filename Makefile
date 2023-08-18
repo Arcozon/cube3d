@@ -1,5 +1,5 @@
 D_SRC = ./src/
-SRC = main.c parsing/parsing_l_map.c parsing/parsing1.c parsing/fixing_map.c parsing/gnl.c parsing/checking_map.c parsing/parsing2.c parsing/utils.c utils.c
+SRC = parsing/parsing_l_map.c parsing/parsing1.c parsing/fixing_map.c parsing/gnl.c parsing/checking_map.c parsing/parsing2.c parsing/utils.c utils.c main.c
 
 D_OBJ = ./obj/
 OBJ = $(addprefix $(D_OBJ), $(patsubst %.c,%.o,$(SRC)))

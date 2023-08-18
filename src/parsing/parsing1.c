@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:11:11 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/07 14:41:37 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/18 17:09:32 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,37 @@ int	is_not_empty(char *line)
 	return (0);
 }
 
+t_image	init_image(void)
+{
+	t_image	image;
+
+	image.name = 0;
+	image.data = 0;
+	image.mlx_image = 0;
+	image.bpp = 0;
+	image.size_line = 0;
+	image.endian = 0;
+	return (image);
+}
+
 t_data	init_data(void)
 {
 	t_data	data;
 
 	data.f = -1;
 	data.c = -1;
-	data.no = 0;
-	data.ea = 0;
-	data.we = 0;
-	data.so = 0;
+	data.no = init_image();
+	data.ea = init_image();
+	data.we = init_image();
+	data.so = init_image();
+	data.map = 0;
 	return (data);
 }
 
 int	is_data_full(t_data data)
 {
-	return (!(data.f == -1 || data.c == -1 || data.no == 0 || data.ea == 0
-			|| data.we == 0 || data.so == 0));
+	return (!(data.f == -1 || data.c == -1 || data.no.name == 0
+			|| data.ea.name == 0 || data.we.name == 0 || data.so.name == 0));
 }
 
 int	parsing_color(char *linetf, t_data data, int fd, int old)

@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:24:31 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/08 18:18:18 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/18 17:59:38 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	parsing_data2(int fd, t_data *data, char *line)
 	else if (wildcard_nb(PATERN_F, line))
 		data->f = parsing_color(line, *data, fd, data->f);
 	else if (wildcard(PATERN_NO, line))
-		data->no = handle_img(fd, data, line, data->no);
+		data->no.name = handle_img(fd, data, line, data->no.name);
 	else if (wildcard(PATERN_SO, line))
-		data->so = handle_img(fd, data, line, data->so);
+		data->so.name = handle_img(fd, data, line, data->so.name);
 	else if (wildcard(PATERN_EA, line))
-		data->ea = handle_img(fd, data, line, data->ea);
+		data->ea.name = handle_img(fd, data, line, data->ea.name);
 	else if (wildcard(PATERN_WE, line))
-		data->we = handle_img(fd, data, line, data->we);
+		data->we.name = handle_img(fd, data, line, data->we.name);
 	else
 		free_data_line(*data, line, fd, "Unrecognized line");
 }
@@ -60,15 +60,18 @@ t_data	parsing_data(int fd)
 	}
 	if (!is_data_full(data))
 		free_data_line(data, 0, fd, "Missing data");
+	data.map = map_bs(fd);
+	if (!data.map)
+		(free_data(data), close(fd), exit(1));
 	return (data);
 }
 
 void	free_data(t_data data)
 {
-	free(data.no);
-	free(data.so);
-	free(data.ea);
-	free(data.we);
+	free(data.no.name);
+	free(data.so.name);
+	free(data.ea.name);
+	free(data.we.name);
 }
 
 void	free_data_line(t_data data, char *line, int fd, char *error)
