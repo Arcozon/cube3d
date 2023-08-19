@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 00:36:13 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/19 05:48:16 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/19 12:37:21 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int main(int ac, char **av, char **envp)
         return (1);
     if (my_client_join(&my_client, getenv("USER")))
         return (2);
-    if (my_client_join(&my_client, getenv("USER")))
-        return (2);
-    if (my_client_join(&my_client, getenv("USER")))
-        return (2);
     my_socket_write_float(my_socket, 1.012514f);
+    my_socket_close(my_socket);
     my_client_read_float(my_client, &my_float);
     printf("%f\n", my_float);
+    my_client_leave(my_client);
     return (0);
 }
