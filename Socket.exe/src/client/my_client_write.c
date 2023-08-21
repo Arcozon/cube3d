@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_socket_reset.c                                  :+:      :+:    :+:   */
+/*   my_client_write.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 02:25:20 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/21 19:00:31 by geudes           ###   ########.fr       */
+/*   Created: 2023/08/21 19:22:40 by geudes            #+#    #+#             */
+/*   Updated: 2023/08/21 19:26:09 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_socket.h"
 
-int	my_socket_reset(t_my_socket *my_socket)
+int	my_client_write(t_my_client my_client, char c)
 {
-	close(my_socket->fd);
-	my_socket->fd = open(my_socket->fd_name, O_RDWR | O_TRUNC);
-	if (my_socket->fd == -1)
-		return (-1);
+	write(my_client.write_fd, &c, 1);
 	return (0);
 }

@@ -1,5 +1,5 @@
 D_SRC = ./src/
-SRC = main.c socket/my_socket_write.c socket/my_socket_utils.c socket/my_socket_reset.c socket/my_socket_create.c socket/my_socket_close.c client/my_client_join.c client/my_client_utils.c client/my_client_leave.c client/my_client_read.c
+SRC = main.c client/my_client_leave.c client/my_client_read.c client/my_client_utils.c client/my_client_reset.c client/my_client_join.c socket/my_socket_reset.c socket/my_socket_create.c socket/my_socket_utils.c socket/my_socket_write.c socket/my_socket_close.c
 
 D_OBJ = ./obj/
 OBJ = $(addprefix $(D_OBJ), $(patsubst %.c,%.o,$(SRC)))

@@ -6,81 +6,61 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 04:21:02 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/19 20:01:29 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/21 16:19:54 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_socket.h"
 
-int     my_client_read_float(t_my_client my_client, float *to_read)
+int	my_client_read_float(t_my_client my_client, float *to_read)
 {
-    uint    to_read_uint;
-    char    my_char;
-    int     i;
+	uint	to_read_uint;
+	char	my_char;
+	int		i;
 
-    i = 32;
-    to_read_uint = 0;
-    while (--i >= 0)
-    {
-        read(my_client.read_fd, &my_char, 1);
-        to_read_uint <<= 1;
-        to_read_uint |= (my_char == '1');
-    }
-    read(my_client.read_fd, &my_char, 1);
-    *(uint *)to_read = to_read_uint;
-    return (1);
+	i = 32;
+	to_read_uint = 0;
+	while (--i >= 0)
+	{
+		read(my_client.read_fd, &my_char, 1);
+		to_read_uint <<= 1;
+		to_read_uint |= (my_char == '1');
+	}
+	read(my_client.read_fd, &my_char, 1);
+	*(uint *)to_read = to_read_uint;
+	return (1);
 }
 
-// int     my_client_read_float(t_my_client my_client, float *to_read)
-// {
-//     uint    to_read_uint;
-//     char    my_str[5];
-
-//     to_read_uint = 0;
-//     read(my_client.read_fd, my_str, 5);
-//     to_read_uint |= my_str[0];
-//     to_read_uint <<= 8;
-//     to_read_uint |= my_str[1];
-//     to_read_uint <<= 8;
-//     to_read_uint |= my_str[2];
-//     to_read_uint <<= 8;
-//     to_read_uint |= my_str[3];
-//     for(int i = 31; i>=0; i--)
-//         printf("%c", ((to_read_uint >> i) & 1) + '0');
-//     *(uint *)to_read = to_read_uint;
-//     return (1);
-// }
-
-int     my_client_read_int(t_my_client my_client, int *to_read)
+int	my_client_read_int(t_my_client my_client, int *to_read)
 {
-    char    my_char;
-    int     i;
+	char	my_char;
+	int		i;
 
-    i = 32;
-    *to_read = 0;
-    while (--i >= 0)
-    {
-        read(my_client.read_fd, &my_char, 1);
-        *to_read <<= 1;
-        *to_read |= (my_char == '1');
-    }
-    read(my_client.read_fd, &my_char, 1);
-    return (1);
+	i = 32;
+	*to_read = 0;
+	while (--i >= 0)
+	{
+		read(my_client.read_fd, &my_char, 1);
+		*to_read <<= 1;
+		*to_read |= (my_char == '1');
+	}
+	read(my_client.read_fd, &my_char, 1);
+	return (1);
 }
 
-int     my_client_read_char(t_my_client my_client, char *to_read)
+int	my_client_read_char(t_my_client my_client, char *to_read)
 {
-    char    my_char;
-    int     i;
+	char	my_char;
+	int		i;
 
-    i = 8;
-    *to_read = 0;
-    while (--i >= 0)
-    {
-        read(my_client.read_fd, &my_char, 1);
-        *to_read <<= 1;
-        *to_read |= (my_char == '1');
-    }
-    read(my_client.read_fd, &my_char, 1);
-    return (1);
+	i = 8;
+	*to_read = 0;
+	while (--i >= 0)
+	{
+		read(my_client.read_fd, &my_char, 1);
+		*to_read <<= 1;
+		*to_read |= (my_char == '1');
+	}
+	read(my_client.read_fd, &my_char, 1);
+	return (1);
 }
