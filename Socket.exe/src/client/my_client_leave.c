@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 02:13:30 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/21 16:19:02 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/24 17:32:29 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	my_client_leave(t_my_client my_client)
 	sem_close(my_client.sema);
 	free(my_client.sema_name);
 	close(my_client.write_fd);
+	unlink(my_client.wfd_name);
 	free(my_client.wfd_name);
 }

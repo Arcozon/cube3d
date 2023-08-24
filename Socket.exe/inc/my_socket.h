@@ -40,16 +40,19 @@ typedef struct s_my_socket
 }	t_my_socket;
 
 int		my_socket_create(t_my_socket *my_socket, int nb_player);
-void	my_socket_close(t_my_socket my_socket);
+void	my_socket_close(t_my_socket *my_socket);
 
+int		my_socket_wait(t_my_socket *my_socket);
 int		my_socket_reset(t_my_socket *my_socket);
 
+int		my_socket_post(t_my_socket *my_socket);
 int		my_socket_write_float(t_my_socket my_socket, float to_write);
 int		my_socket_write_int(t_my_socket my_socket, int to_write);
 int		my_socket_write_char(t_my_socket my_socket, char to_write);
 
 char	*s_get_fd_name(void);
 char	*s_get_sema_name(void);
+char	*s_get_rfd_name(int id);
 
 //				 -----	  CLIENT	  -----
 typedef struct s_my_client
@@ -67,10 +70,10 @@ int		my_client_join(t_my_client *my_client, char *user);
 void	my_client_leave(t_my_client my_socket);
 int		my_client_reset(t_my_client *my_client);
 
+int		my_client_wait(t_my_client *my_client);
 int		my_client_read_float(t_my_client my_socket, float *to_read);
 int		my_client_read_int(t_my_client my_socket, int *to_read);
 int		my_client_read_char(t_my_client my_socket, char *to_read);
-
 
 char	*c_get_rfd_name(char *user);
 char	*c_get_wfd_name(char *user, int id);

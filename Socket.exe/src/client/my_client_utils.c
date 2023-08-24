@@ -6,16 +6,16 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 04:52:58 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/21 18:58:54 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/24 17:49:51 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_socket.h"
 
-char    *c_get_rfd_name(char *user)
+char	*c_get_rfd_name(char *user)
 {
-	char    *res ;
-	int     i;
+	char	*res ;
+	int		i;
 
 	res = malloc(2 + s_strlen(user) + 1);
 	if (!res)
@@ -29,10 +29,10 @@ char    *c_get_rfd_name(char *user)
 	return (res);
 }
 
-char    *c_get_sema_name(char *user)
+char	*c_get_sema_name(char *user)
 {
-	char    *res ;
-	int     i;
+	char	*res ;
+	int		i;
 
 	res = malloc(4 + s_strlen(user) + 1);
 	if (!res)
@@ -48,10 +48,10 @@ char    *c_get_sema_name(char *user)
 	return (res);
 }
 
-char    *c_get_wfd_name(char *user, int id)
+char	*c_get_wfd_name(char *user, int id)
 {
-	char    *res ;
-	int     i;
+	char	*res ;
+	int		i;
 
 	res = malloc(2 + s_strlen(user) + 2);
 	if (!res)
