@@ -48,7 +48,6 @@ int		my_socket_write_float(t_my_socket my_socket, float to_write);
 int		my_socket_write_int(t_my_socket my_socket, int to_write);
 int		my_socket_write_char(t_my_socket my_socket, char to_write);
 
-
 char	*s_get_fd_name(void);
 char	*s_get_sema_name(void);
 
@@ -67,7 +66,6 @@ typedef struct s_my_client
 int		my_client_join(t_my_client *my_client, char *user);
 void	my_client_leave(t_my_client my_socket);
 int		my_client_reset(t_my_client *my_client);
-
 
 int		my_client_read_float(t_my_client my_socket, float *to_read);
 int		my_client_read_int(t_my_client my_socket, int *to_read);
