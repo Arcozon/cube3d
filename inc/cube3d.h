@@ -6,7 +6,7 @@
 /*   By: geudes <geudes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:59:51 by geudes            #+#    #+#             */
-/*   Updated: 2023/08/18 18:19:15 by geudes           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:10:08 by geudes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ typedef struct s_data
 	t_image	so;
 	char	**map;
 }	t_data;
-
-typedef struct s_
 
 typedef struct s_l_map
 {
